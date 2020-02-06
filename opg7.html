@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            line-height: 300px;
+            text-align: center;
+        }
+
+        div:nth-child(1) {
+            background: green;
+        }
+
+        div:nth-child(2) {
+            background: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <script>
+        const frogUrl = "http://mabe-kea.dk/E19/pics/frog.png";
+        const pigUrl = "http://mabe-kea.dk/E19/pics/pig.png";
+
+        const green = document.querySelector("div:nth-child(1)");
+        const red = document.querySelector("div:nth-child(2)");
+
+        green.innerHTML = `<img src=${frogUrl} >`;
+        red.innerHTML = `<img src=${pigUrl} >`;
+
+        //        let fox = document.createElement("img");
+        //        fox.src = "http://mabe-kea.dk/E19/pics/fox.png";
+        //        red.appendChild(fox);
+        //
+        green.addEventListener("click", skiftfarve);
+
+        function skiftfarve(){
+            green.style.backgroundColor = "red";
+
+        }
+
+    </script>
+
+</body></html>

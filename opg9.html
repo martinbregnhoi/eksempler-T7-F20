@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <ol id="display"></ol>
+
+    <script>
+
+    let playliste = ["she loves you", "A hard days night", "Love me tender","Bla Bla Bla"];
+
+
+        playliste.forEach(song=>{
+
+            let element = document.createElement("li");
+            let mySong = document.createTextNode(song);
+
+            element.appendChild(mySong);
+
+            document.querySelector("#display").appendChild(element);
+
+        })
+
+
+
+
+    </script>
+
+
+</body>
+</html>

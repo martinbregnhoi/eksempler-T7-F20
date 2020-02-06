@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <article id="person">
+        <p></p>
+        <p></p>
+
+    </article>
+
+    <script>
+    let person = {"navn":"Martin Bregnhøi", "email":"mabe@kea.dk"}
+
+    document.querySelector("article p:nth-child(1)").textContent = person.navn;
+    document.querySelector("article p:nth-child(2)").textContent = person.email;
+
+
+    </script>
+
+</body>
+</html>

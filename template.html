@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    article {
+        border: 1px solid #333;
+        padding: 5px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    article:nth-child(odd) {
+        background: #ca1;
+        color: #fff;
+    }
+
+    article:first-child,
+    article:last-child {
+        border: 5px solid #000;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        max-width: 1000px;
+        margin: 0 auto;
+        grid-gap: 10px;
+    }
+</style>
+
+<body>
+    <template>
+        <article>
+            <section>
+                <p class="navn">Art: </p>
+                <p>Type: </p>
+                <p>Levested: </p>
+            </section>
+            <img src="" alt="">
+        </article>
+    </template>
+    <main></main>
+
+    <script>
+        let zoo = [{
+                "navn": "gris",
+                "type": "pattedyr",
+                "levested": "svinesti",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+            },
+            {
+                "navn": "ræv",
+                "type": "pattedyr",
+                "levested": "skov",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+            }, {
+                "navn": "frø",
+                "type": "amfibie",
+                "levested": "sø",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+            },
+            {
+                "navn": "sild",
+                "type": "fisk",
+                "levested": "havet",
+                "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+            }, {
+                "navn": "krokodille",
+                "type": "krybdyr",
+                "levested": "sump",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+            }
+        ]
+
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            const container = document.querySelector("main");
+            const temp = document.querySelector("template");
+
+            zoo.forEach(dyr => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("img").src = dyr.billede;
+                klon.querySelector("p:nth-child(1)").textContent += dyr.navn;
+                klon.querySelector("p:nth-child(2)").textContent += dyr.type;
+                klon.querySelector("p:nth-child(3)").textContent += dyr.levested;
+
+
+
+                container.appendChild(klon);
+            })
+        }
+    </script>
+
+</body></html>
